@@ -3,7 +3,7 @@
 // import viteLogo from '/vite.svg'
 import NavBar from "./NavaBar";
 import Footer from "./Footer";
-import Course from "./Course/Course";
+import Course from "./Course";
 import "./App.css";
 
 function App() {

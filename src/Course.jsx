@@ -1,11 +1,14 @@
-import styles from './Course.module.css'
-
 const course1 = "Mongo DB"
 
 function Course() {
+
+    const styles = {
+        backgroundColor: "olivedrab"
+    }
+
     return (
-        // external css in Course.module.css
-        <div className={styles.card}>
+        // internal css in Course.jsx inside Course() component
+        <div style={styles}>
             <img src="" alt="" />
             {/* variable should be inside curly braces */}
             <h3>{course1}</h3> 
