@@ -1,8 +1,11 @@
+import styles from './Course.module.css'
+
 const course1 = "Mongo DB"
 
 function Course() {
     return (
-        <div className="card">
+        // external css in Course.module.css
+        <div className={styles.card}>
             <img src="" alt="" />
             {/* variable should be inside curly braces */}
             <h3>{course1}</h3> 
