@@ -1,15 +1,15 @@
+import MongoDB from "./assets/MongoDB.png"
+
 const course1 = "Mongo DB"
 
 function Course() {
 
-    const styles = {
-        backgroundColor: "olivedrab"
-    }
-
     return (
         // internal css in Course.jsx inside Course() component
-        <div style={styles}>
-            <img src="" alt="" />
+        <div className="card">
+            <div id="imgBlock">
+                <img src={MongoDB} alt="Mongo DB" />
+            </div>
             {/* variable should be inside curly braces */}
             <h3>{course1}</h3> 
             {/* expressions can also be inside curly braces */}

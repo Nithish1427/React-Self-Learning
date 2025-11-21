@@ -1,3 +1,28 @@
-/* .card {
+:root {
   background-color: aliceblue;
-} */
+  text-align: center;
+  display: inline-block;
+}
+
+.card {
+  color: #242424;
+  background-color: beige;
+  max-width: 200px;
+  border: 2px solid olivedrab;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 1px;
+  font-family: sans-serif;
+  text-align: center;
+  display: inline-block;
+}
+
+#imgBlock {
+  background-color: white;
+}
+
+.card img {
+  width: 100px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
