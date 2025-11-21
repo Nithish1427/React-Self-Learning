@@ -1,22 +1,26 @@
-import noImg from "./assets/ImageComingSoon.jpg"
+import noImg from "./assets/ImageComingSoon.jpg";
 
-function Course({ 
-  name = "Course", 
-  price = "Coming Soon", 
+function Course({
+  name = "Course",
+  price = "Coming Soon",
   image = noImg,
-  rating = " "
+  rating = " ",
+  show = false,
 }) {
-
-  return (
-    <div className="card">
-      <div className="imgBlock">
-        <img src={image} alt={name} />
+  if (show) {
+    return (
+      <div className="card">
+        <div className="imgBlock">
+          <img src={image} alt={name} />
+        </div>
+        <h3>{name}</h3>
+        <p>{price}</p>
+        <span>{rating}</span>
       </div>
-      <h3>{name}</h3>
-      <p>{price}</p>
-      <span>{rating}</span>
-    </div>
-  );
+    );
+  } else {
+    return <div className="card">Course Not Available</div>;
+  }
 }
 
 // This always works
@@ -32,7 +36,7 @@ export default Course;
 //             <div className="imgBlock">
 //                 <img src={props.image} alt={props.name} />
 //             </div>
-//             <h3>{props.name}</h3> 
+//             <h3>{props.name}</h3>
 //             <p>{props.price}</p>
 //         </div>
 //     );
@@ -49,7 +53,7 @@ export default Course;
 // NOT when the parent passes undefined
 // NOT when the parent passes an empty string
 // NOT when API returns { image: undefined }
- 
+
 // So React “thinks” you did pass props — so defaults are ignored.
 
 // React no longer applies defaultProps on function components in Vite/ESM setups — especially when the prop is explicitly passed as undefined or missing from an API object.

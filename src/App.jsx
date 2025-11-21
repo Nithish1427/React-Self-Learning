@@ -11,13 +11,13 @@ import JavaScript from "./assets/JavaScript.png"
 function App() {
   return (
     <>
-      <Course name="Mongo DB" price="199 rupees" image={MongoDB} rating="4.6" />
-      <Course name="Express.js" price="119 rupees" image={ExpressJS} rating="4.1" />
-      <Course name="React.js" price="149 rupees" image={ReactJS} rating="4.5" />
-      <Course name="Node.js" price="119 rupees" image={NodeJS} rating="4.4" />
-      <Course name="HTML5" price="99 rupees" image={HTML5} rating="4.3" />
-      <Course name="CSS3" price="99 rupees" image={CSS3} rating="4.2" />
-      <Course name="Java Script" price="199 rupees" image={JavaScript} rating="4.7" />
+      <Course name="Mongo DB" price="199 rupees" image={MongoDB} rating="4.6" show={true} />
+      <Course name="Express.js" price="119 rupees" image={ExpressJS} rating="4.1" show={true} />
+      <Course name="React.js" price="149 rupees" image={ReactJS} rating="4.5" show={true} />
+      <Course name="Node.js" price="119 rupees" image={NodeJS} rating="4.4" show={true} />
+      <Course name="HTML5" price="99 rupees" image={HTML5} rating="4.3" show={true} />
+      <Course name="CSS3" price="99 rupees" image={CSS3} rating="4.2" show={true} />
+      <Course name="Java Script" price="199 rupees" image={JavaScript} rating="4.7" show={true} />
     </>
   );
 }
