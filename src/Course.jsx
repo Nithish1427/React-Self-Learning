@@ -1,4 +1,5 @@
 import noImg from "./assets/ImageComingSoon.jpg";
+import PropTypes from "prop-types";
 
 function Course({
   name = "Course",
@@ -19,9 +20,14 @@ function Course({
       </div>
     );
   } else {
-    <div>Course Not Available</div>;
+    return <div>Course Not Available</div>;
   }
 }
 
+Course.propTypes = {
+  name: PropTypes.string,
+  rating: PropTypes.number,
+  show: PropTypes.bool,
+};
 
-export default Course
+export default Course;
