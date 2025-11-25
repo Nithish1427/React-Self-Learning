@@ -54,6 +54,12 @@ function CourseList() {
         },
     ];
 
+    // Sorting - Ascending Order (x,y) => x-y
+    courses.sort((x,y) => x.price-y.price)
+
+    // Sorting - Descending Order (x,y) => y-x
+    courses.sort((x,y) => y.price-x.price)
+
     const coursesList = courses.map((course, index) => (
         <Course
             key={index} 
