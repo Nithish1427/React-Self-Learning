@@ -5,29 +5,24 @@ function Course({
   name = "Course",
   price = "Coming Soon",
   image = noImg,
-  rating = " ",
-  show = false,
+  rating = 0,
 }) {
-  if (show) {
-    return (
-      <div className="card">
-        <div className="imgBlock">
-          <img src={image} alt={name} />
-        </div>
-        <h3>{name}</h3>
-        <p>{price}</p>
-        <span>{rating}</span>
+  return (
+    <div className="card">
+      <div className="imgBlock">
+        <img src={image} alt={name} />
       </div>
-    );
-  } else {
-    return <div>Course Not Available</div>;
-  }
+      <h3>{name}</h3>
+      <p>{price}</p>
+      <span>{rating}</span>
+    </div>
+  );
 }
 
 Course.propTypes = {
   name: PropTypes.string,
-  rating: PropTypes.number,
-  show: PropTypes.bool,
+  price : PropTypes.number,
+  rating: PropTypes.number
 };
 
 export default Course;
