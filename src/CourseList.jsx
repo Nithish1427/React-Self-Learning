@@ -54,13 +54,10 @@ function CourseList() {
         },
     ];
 
-    // Sorting - Ascending Order (x,y) => x-y
-    courses.sort((x,y) => x.price-y.price)
+    // Filtering based on price - Value for Money Courses 
+    const vfmCourses = courses.filter((course) => course.price < 140)
 
-    // Sorting - Descending Order (x,y) => y-x
-    courses.sort((x,y) => y.price-x.price)
-
-    const coursesList = courses.map((course, index) => (
+    const coursesList = vfmCourses.map((course, index) => (
         <Course
             key={index} 
             name={course.name}
