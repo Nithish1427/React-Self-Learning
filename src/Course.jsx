@@ -1,28 +1,25 @@
-import noImg from "./assets/ImageComingSoon.jpg";
+// import noImg from "./assets/ImageComingSoon.jpg";
 import PropTypes from "prop-types";
 
-function Course({
-  name = "Course",
-  price = "Coming Soon",
-  image = noImg,
-  rating = 0,
-}) {
+function Course(props){
   return (
-    <div className="card">
-      <div className="imgBlock">
-        <img src={image} alt={name} />
+    props.name && (
+      <div className="card">
+        <div className="imgBlock">
+          <img src={props.image} alt={props.name} />
+        </div>
+        <h3>{props.name}</h3>
+        <p>{props.price}</p>
+        <span>{props.rating}</span>
       </div>
-      <h3>{name}</h3>
-      <p>{price}</p>
-      <span>{rating}</span>
-    </div>
+    )
   );
 }
 
 Course.propTypes = {
   name: PropTypes.string,
-  price : PropTypes.number,
-  rating: PropTypes.number
+  price: PropTypes.number,
+  rating: PropTypes.number,
 };
 
 export default Course;

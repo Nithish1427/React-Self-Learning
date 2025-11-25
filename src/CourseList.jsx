@@ -56,8 +56,6 @@ function CourseList() {
 
     const coursesList = courses.map((course, index) => (
         <Course
-            // each component should have a unique key
-            // it can also be its index value (position in the courseList)
             key={index} 
             name={course.name}
             image={course.image}
@@ -65,17 +63,6 @@ function CourseList() {
             rating={course.rating}
         />
     ));
-
-    // const coursesList = courses.map((course) => (
-    //     <Course
-    //         // each component should have a unique key
-    //         key={course.id} 
-    //         name={course.name}
-    //         image={course.image}
-    //         price={course.price}
-    //         rating={course.rating}
-    //     />
-    // ));
 
     return(
         <>
