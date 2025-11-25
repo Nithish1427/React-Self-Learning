@@ -8,6 +8,7 @@ import CSS3 from "./assets/CSS3.png";
 import JavaScript from "./assets/JavaScript.png";
 
 function CourseList() {
+
     const courses = [
         {
             name: "Mongo DB",
@@ -55,13 +56,26 @@ function CourseList() {
 
     const coursesList = courses.map((course, index) => (
         <Course
-            key={index}
+            // each component should have a unique key
+            // it can also be its index value (position in the courseList)
+            key={index} 
             name={course.name}
             image={course.image}
             price={course.price}
             rating={course.rating}
         />
     ));
+
+    // const coursesList = courses.map((course) => (
+    //     <Course
+    //         // each component should have a unique key
+    //         key={course.id} 
+    //         name={course.name}
+    //         image={course.image}
+    //         price={course.price}
+    //         rating={course.rating}
+    //     />
+    // ));
 
     return(
         <>
