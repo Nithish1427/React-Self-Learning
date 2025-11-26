@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 
 function Course(props){
 
-  function BuyCourse() {
-    alert("Purchasing "+props.name+" Course at "+props.price+" rupees?");
-    console.log(props.name,"Course Purchased at",props.price,"rupees");
+  function BuyCourse(discount) {
+    const finalPrice = props.price - ( props.price * ( discount / 100 ));
+    alert("Purchasing "+props.name+" Course at "+finalPrice+" rupees after a "+props.discount+" % discount from the actual price "+props.price+"?");
+    console.log(props.name,"Course purchased at",finalPrice,"rupees after a",props.discount,"% discount from the actual price",props.price,"?");
   }
 
   return (
@@ -16,7 +17,7 @@ function Course(props){
         </div>
         <h3>{props.name}</h3>
         <p>{props.price}</p>
-        <button onClick={BuyCourse}>Buy Course</button>
+        <button onClick={() => BuyCourse(props.discount)}>Purchase</button>
       </div>
     )
   );

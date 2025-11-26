@@ -12,45 +12,45 @@ function CourseList() {
     const courses = [
         {
             name: "Mongo DB",
-            price: 199,
-            rating: 4.6,
             image: MongoDB,
+            price: 199,
+            discount : 20
         },
         {
             name: "Express.js",
-            price: 119,
-            rating: 4.1,
             image: ExpressJS,
+            price: 119,
+            discount : 15
         },
         {
             name: "React.js",
-            price: 149,
-            rating: 4.5,
             image: ReactJS,
+            price: 149,
+            discount : 25
         },
         {
             name: "Node.js",
-            price: 119,
-            rating: 4.4,
             image: NodeJS,
+            price: 119,
+            discount : 15
         },
         {
             name: "HTML5",
-            price: 99,
-            rating: 4.3,
             image: HTML5,
+            price: 99,
+            discount : 10
         },
         {
             name: "CSS3",
-            price: 99,
-            rating: 4.2,
             image: CSS3,
+            price: 99,
+            discount : 10
         },
         {
             name: "Java Script",
             image: JavaScript,
             price: 199,
-            rating: 4.7,
+            discount : 20
         },
     ];
 
@@ -60,7 +60,7 @@ function CourseList() {
             name={course.name}
             image={course.image}
             price={course.price}
-            rating={course.rating}
+            discount={course.discount}
         />
     ));
 
