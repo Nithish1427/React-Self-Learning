@@ -54,10 +54,7 @@ function CourseList() {
         },
     ];
 
-    // Filtering based on price - Value for Money Courses 
-    const vfmCourses = courses.filter((course) => course.price < 140)
-
-    const coursesList = vfmCourses.map((course, index) => (
+    const coursesList = courses.map((course, index) => (
         <Course
             key={index} 
             name={course.name}
