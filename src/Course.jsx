@@ -1,13 +1,45 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 
-function Course(props){
-
-  let purchased = false;
+function Course(props) {
+  const [purchased, setPurchased] = useState(false);
 
   function BuyCourse(discount) {
-    const finalPrice = props.price - ( props.price * ( discount / 100 ));
-    alert("Purchasing "+props.name+" Course at "+finalPrice+" rupees after a "+props.discount+" % discount from the actual price "+props.price+"?");
-    console.log(props.name,"Course purchased at",finalPrice,"rupees after a",props.discount,"% discount from the actual price",props.price,"?");
+    if (!purchased) {
+      const finalPrice = props.price - props.price * (discount / 100);
+
+      alert(
+        "Purchasing " +
+          props.name +
+          " Course at " +
+          finalPrice +
+          " rupees after a " +
+          props.discount +
+          " % discount from the actual price " +
+          props.price +
+          "?"
+      );
+
+      setPurchased(true);
+
+      console.log(
+        props.name,
+        "Course purchased at",
+        finalPrice,
+        "rupees after a",
+        props.discount,
+        "% discount from the actual price",
+        props.price,
+        "?"
+      );
+    } else {
+      alert(props.name + " Course has already been purchased.");
+      console.log(
+        "Attempted to purchase the",
+        props.name,
+        "Course again. Not possible."
+      );
+    }
   }
 
   return (
