@@ -91,6 +91,7 @@ function Course(props) {
           Apply Discount
         </button>
         <button onClick={() => BuyCourse()}>Purchase</button>
+        <button onClick={() => props.delete(props.id)}>Delete</button>
         <p>{purchased ? "Already purchased" : "Get it now"}</p>
       </div>
     )
