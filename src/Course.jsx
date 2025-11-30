@@ -43,7 +43,7 @@ function Course(props) {
 
   const [purchased, setPurchased] = useState(false);
 
-  function BuyCourse(priceAfterDiscount) {
+  function BuyCourse(finalPrice) {
     if (!purchased) {
       alert(
         "Purchasing " +
