@@ -2,12 +2,49 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 
 function Course(props) {
+
+  const [discountApplied, setDiscountApplied] = useState(false);
+  const [finalPrice, setFinalPrice] = useState(props.price);
+
+  function applyDiscount(discount) {
+    if (!discountApplied) {
+      alert(
+        "Applying " +
+          props.discount +
+          " % discount on the actual price of " +
+          finalPrice +
+          " for the " +
+          props.name +
+          " Course?"
+      );
+
+      setFinalPrice(finalPrice - finalPrice * (discount / 100)); // price after discount
+      setDiscountApplied(true);
+
+      console.log(
+        "Applied",
+        props.discount,
+        "% discount on the actual price of",
+        finalPrice,
+        "for the",
+        props.name,
+        "Course."
+      );
+    }
+    else {
+      alert("A discount of " + props.discount + " % has already been applied for "+ props.name + " Course. ");
+      console.log(
+        "Attempted to apply discount for",
+        props.name,
+        "Course again. Not possible."
+      );
+    }
+  }
+
   const [purchased, setPurchased] = useState(false);
 
-  function BuyCourse(discount) {
+  function BuyCourse(priceAfterDiscount) {
     if (!purchased) {
-      const finalPrice = props.price - props.price * (discount / 100);
-
       alert(
         "Purchasing " +
           props.name +
@@ -15,9 +52,9 @@ function Course(props) {
           finalPrice +
           " rupees after a " +
           props.discount +
-          " % discount from the actual price " +
+          " % discount on the actual price of " +
           props.price +
-          "?"
+          " rupees?"
       );
 
       setPurchased(true);
@@ -28,9 +65,9 @@ function Course(props) {
         finalPrice,
         "rupees after a",
         props.discount,
-        "% discount from the actual price",
+        "% discount on the actual price of",
         props.price,
-        "?"
+        "rupees."
       );
     } else {
       alert(props.name + " Course has already been purchased.");
@@ -49,8 +86,11 @@ function Course(props) {
           <img src={props.image} alt={props.name} />
         </div>
         <h3>{props.name}</h3>
-        <p>{props.price}</p>
-        <button onClick={() => BuyCourse(props.discount)}>Purchase</button>
+        <p>{finalPrice}</p>
+        <button onClick={() => applyDiscount(props.discount)}>
+          Apply Discount
+        </button>
+        <button onClick={() => BuyCourse()}>Purchase</button>
         <p>{purchased ? "Already purchased" : "Get it now"}</p>
       </div>
     )
