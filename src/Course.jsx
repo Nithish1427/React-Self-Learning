@@ -79,6 +79,13 @@ function Course(props) {
     }
   }
 
+  // // when there's change in the state of the component, the component gets rerendered and the useEffect called
+  // // methods (from useState) like setPurchased should not be used inside useEffect, since it can cause an infinite loop
+  // useEffect(() => {
+  //   console.log("Course.jsx useEffect called");
+  // });
+  
+
   return (
     props.name && (
       <div className="card">

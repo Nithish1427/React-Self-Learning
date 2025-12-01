@@ -3,12 +3,12 @@ import MongoDB from "./assets/MongoDB.png";
 import ExpressJS from "./assets/Express.png";
 import ReactJS from "./assets/React.png";
 import NodeJS from "./assets/Node.png";
-import HTML5 from "./assets/HTML5.png";
-import CSS3 from "./assets/CSS3.png";
-import JavaScript from "./assets/JavaScript.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function CourseList() {
+
+  const [dummy, setDummy] = useState(true);
+
   const [courses, setCourses] = useState([
     {
       id: 1,
@@ -40,6 +40,17 @@ function CourseList() {
     },
   ]);
 
+  // when there's change in the state of the component, the component gets rerendered and the useEffect called
+  // methods (from useState) like setCourses or setDummy should not be used inside useEffect, since it can cause an infinite loop
+  useEffect(() => {
+    console.log("CourseList.jsx useEffect called");
+    console.log(dummy);
+  }, [dummy]); 
+  // [] - empty dependency array - no dependency added - useEffect called only once during the initial rendering of the components
+  // [dummy] - dependency added as dummy (state variable) - useEffect called only when there's change in the state of the dummy component (Dummy Button)
+  // [courses] - dependency added as courses (state variable) - useEffect called only when there's change in the state of the courses component (Courses)
+  // no dependency array - useEffect called when there's change in the state of any component 
+
   function handleDelete(id) {
     // const newCourses = courses.filter((course) => course.id != id);
     // setCourses(newCourses);
@@ -58,7 +69,12 @@ function CourseList() {
     />
   ));
 
-  return <>{coursesList}</>;
+  return (
+    <>
+      {coursesList}
+      <button onClick={() => setDummy(false)}>Dummy Button</button>
+    </>
+  );
 }
 
 export default CourseList;
