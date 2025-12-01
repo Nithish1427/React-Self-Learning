@@ -8,15 +8,21 @@ function CourseList() {
   useEffect(() => {
     console.log("CourseList.jsx useEffect called");
 
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('http://localhost:3000/courses')
     .then((response) => {console.log(response); // data from the API endpoint fetched as response and printed in console
       return response.json(); // response into json format
-    }).then((data) => {console.log(data)}) // data printed in console
-
+    }).then((data) => setCourses(data)) 
+    // here using setCourses inside useEffect is not a problem because of the empty dependency (since it is called only once)
   }, []); 
 
   function handleDelete(id) {
     setCourses(courses.filter((course) => course.id != id));
+  }
+
+  // Error - React tries to render the course components before fetching the data from API endpoint
+  // Error Handling 
+  if(!courses) {
+    return <></>
   }
 
   const coursesList = courses.map((course) => (
@@ -40,4 +46,5 @@ function CourseList() {
 
 export default CourseList;
 
+// // run this command in terminal to create a local json server as backend
 // npx json-server --watch my-react-app/data/dummyData.json --port 3000 --static ./my-react-app/data

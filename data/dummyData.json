@@ -3,28 +3,28 @@
         {
             "id": 1,
             "name": "Mongo DB",
-            "image": "/assets/MongoDB.png",
+            "image": "http://localhost:3000/assets/MongoDB.png",
             "price": 199,
             "discount": 20
         },
         {
             "id": 2,
             "name": "Express.js",
-            "image": "/assets/Express.png",
+            "image": "http://localhost:3000/assets/Express.png",
             "price": 119,
             "discount": 15
         },
         {
             "id": 3,
             "name": "React.js",
-            "image": "/assets/React.png",
+            "image": "http://localhost:3000/assets/React.png",
             "price": 149,
             "discount": 25
         },
         {
             "id": 4,
             "name": "Node.js",
-            "image": "/assets/Node.png",
+            "image": "http://localhost:3000/assets/Node.png",
             "price": 119,
             "discount": 15
         }
