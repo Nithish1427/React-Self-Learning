@@ -1,0 +1,32 @@
+{
+    "courses" : [
+        {
+            "id": 1,
+            "name": "Mongo DB",
+            "image": "/assets/MongoDB.png",
+            "price": 199,
+            "discount": 20
+        },
+        {
+            "id": 2,
+            "name": "Express.js",
+            "image": "/assets/Express.png",
+            "price": 119,
+            "discount": 15
+        },
+        {
+            "id": 3,
+            "name": "React.js",
+            "image": "/assets/React.png",
+            "price": 149,
+            "discount": 25
+        },
+        {
+            "id": 4,
+            "name": "Node.js",
+            "image": "/assets/Node.png",
+            "price": 119,
+            "discount": 15
+        }
+    ]
+}
