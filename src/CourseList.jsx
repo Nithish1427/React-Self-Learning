@@ -38,7 +38,7 @@ function CourseList() {
   if (!courses) {
     return (
       <>
-        {!error && <p>Loading....</p>}
+        {!error && <img src="data/assets/icons8-loading-bar.gif"></img>}
         {/* Conditional Rendering applied so that the "Loading...." disappears when error displayed  */}
         {error && <p>{error}</p>} 
         {/* Conditional Rendering applied so that the error is displayed only if it's caught  */}
@@ -63,7 +63,7 @@ function CourseList() {
 
 export default CourseList;
 
-// // run this command in terminal to create a local json server as backend
+// // run this command in terminal to create a local json server as API Endpoint
 // // run this command after changing directory to my-react-app
 // cd my-react-app
 // npx json-server --watch data/dummyData.json --port 3000 --static ./data
