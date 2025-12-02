@@ -47,4 +47,6 @@ function CourseList() {
 export default CourseList;
 
 // // run this command in terminal to create a local json server as backend
-// npx json-server --watch my-react-app/data/dummyData.json --port 3000 --static ./my-react-app/data
+// // run this command after changing directory to my-react-app
+// cd my-react-app
+// npx json-server --watch data/dummyData.json --port 3000 --static ./data
