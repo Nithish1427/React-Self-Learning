@@ -7,36 +7,41 @@ function CourseList() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log("CourseList.jsx useEffect called");
 
-    fetch("http://localhost:3000/courses") // API Endpoint
-      .then((response) => {
-        if(!response.ok) {
-          throw Error("Couldn't retrieve data"); // Custom Error Message
-          // if the API Endpoint is incorrect, then this error message is displayed
-          // for example, "coursess" instead of "courses"
-        }
-        console.log(response); // data from the API endpoint fetched as response and printed in console
-        return response.json(); // response into json format
-      })
-      .then((data) => setCourses(data))
-      .catch((error) => {
-        // console.log(error); // prints error message with details
-        console.log(error.message); // prints just the "failed to fetch" message
-        setError(error.message);
-      });
+    // Adding a slight delay for fetching 
+    setTimeout(() => {
+      fetch("http://localhost:3000/courses") // API Endpoint
+        .then((response) => {
+          if (!response.ok) {
+            throw Error("Couldn't retrieve data"); // Custom Error Message
+            // if the API Endpoint is incorrect, then this error message is displayed
+            // for example, "coursess" instead of "courses"
+          }
+          console.log(response); // data from the API endpoint fetched as response and printed in console
+          return response.json(); // response into json format
+        })
+        .then((data) => setCourses(data))
+        .catch((error) => {
+          // console.log(error); // prints error message with details
+          console.log(error.message); // prints just the "failed to fetch" message
+          setError(error.message);
+        });
+    }, 1000) // 1000 milliseconds delay
   }, []);
 
   function handleDelete(id) {
     setCourses(courses.filter((course) => course.id != id));
   }
 
-  // Error - React tries to render the course components before fetching the data from API endpoint
-  // Error Handling
+  // Error Handling - Delay in Fetching and Loading 
+  // React tries to render the course components before fetching the data from API endpoint
   if (!courses) {
     return (
       <>
-        <p>{error}</p>
+        {!error && <p>Loading....</p>}
+        {/* Conditional Rendering applied so that the "Loading...." disappears when error displayed  */}
+        {error && <p>{error}</p>} 
+        {/* Conditional Rendering applied so that the error is displayed only if it's caught  */}
       </>
     );
   }
